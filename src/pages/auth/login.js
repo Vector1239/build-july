@@ -89,13 +89,13 @@ const Page = () => {
           display: 'flex',
           justifyContent: 'center'
         }}
-      > boz
+      >
         <Box
           sx={{
             maxWidth: 550,
             px: 3,
             py: '100px',
-            width: '100%'
+            width: '100%',
           }}
         >
           <div>

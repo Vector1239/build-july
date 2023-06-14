@@ -37,7 +37,8 @@ export const Layout = (props) => {
               p: 3,
               position: 'fixed',
               top: 0,
-              width: '100%'
+              width: '100%',
+              backgroundColor: 'black',
             }}
           >
             <Box
@@ -46,7 +47,8 @@ export const Layout = (props) => {
               sx={{
                 display: 'inline-flex',
                 height: 32,
-                width: 32
+                width: 32,
+                backgroundColor: 'black',
               }}
             >
               <Logo />
@@ -85,7 +87,7 @@ export const Layout = (props) => {
                 sx={{ color: '#15B79E' }}
                 target="_blank"
               >
-                Devias Kit
+                Admyre Demo Console
               </Box>
             </Typography>
             <Typography
@@ -93,7 +95,7 @@ export const Layout = (props) => {
               sx={{ mb: 3 }}
               variant="subtitle1"
             >
-              A professional kit that comes with ready-to-use MUI components.
+             This is a testing environment, only for demo
             </Typography>
             <img
               alt=""
