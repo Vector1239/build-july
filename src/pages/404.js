@@ -2,6 +2,7 @@ import Head from 'next/head';
 import NextLink from 'next/link';
 import ArrowLeftIcon from '@heroicons/react/24/solid/ArrowLeftIcon';
 import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
+import Image from 'next/image';
 
 const Page = () => (
   <>
@@ -33,7 +34,7 @@ const Page = () => (
               textAlign: 'center'
             }}
           >
-            <img
+            <Image
               alt="Under development"
               src="/assets/errors/error-404.png"
               style={{
