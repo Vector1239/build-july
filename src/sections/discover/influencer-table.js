@@ -17,7 +17,7 @@ import {
 import { Scrollbar } from 'src/components/scrollbar';
 import { getInitials } from 'src/utils/get-initials';
 
-export const CustomersTable = (props) => {
+export const InfluencerTable = (props) => {
   const {
     count = 0,
     items = [],
@@ -62,25 +62,25 @@ export const CustomersTable = (props) => {
                   Email
                 </TableCell>
                 <TableCell>
-                  Location
-                </TableCell>
-                <TableCell>
                   Phone
                 </TableCell>
-                <TableCell>
+                {/* <TableCell>
                   Followers
-                </TableCell>
+                </TableCell> */}
+                {/* <TableCell>
+                  value
+                </TableCell> */}
               </TableRow>
             </TableHead>
             <TableBody>
-              {items.map((customer) => {
-                const isSelected = selected.includes(customer.id);
-                const createdAt = format(customer.createdAt, 'dd/MM/yyyy');
+              {items.map((influencer) => {
+                const isSelected = selected.includes(influencer.id);
+                //const dob = format(new Date(influencer.dob), 'dd/MM/yyyy');
 
                 return (
                   <TableRow
                     hover
-                    key={customer.id}
+                    key={influencer.id}
                     selected={isSelected}
                   >
                     <TableCell padding="checkbox">
@@ -88,9 +88,9 @@ export const CustomersTable = (props) => {
                         checked={isSelected}
                         onChange={(event) => {
                           if (event.target.checked) {
-                            onSelectOne?.(customer.id);
+                            onSelectOne?.(influencer.id);
                           } else {
-                            onDeselectOne?.(customer.id);
+                            onDeselectOne?.(influencer.id);
                           }
                         }}
                       />
@@ -101,26 +101,26 @@ export const CustomersTable = (props) => {
                         direction="row"
                         spacing={2}
                       >
-                        <Avatar src={customer.avatar}>
-                          {getInitials(customer.name)}
-                        </Avatar>
+                        {/* <Avatar src={influencer.profileImage.url}>
+                          {getInitials(influencer.name)}
+                        </Avatar> */}
                         <Typography variant="subtitle2">
-                          {customer.name}
+                          {influencer.name}
                         </Typography>
                       </Stack>
                     </TableCell>
                     <TableCell>
-                      {customer.email}
+                      {influencer.email}
                     </TableCell>
                     <TableCell>
-                      {customer.address.city}, {customer.address.state}, {customer.address.country}
+                      {influencer.phone}
                     </TableCell>
-                    <TableCell>
-                      {customer.phone}
-                    </TableCell>
-                    <TableCell>
-                      {createdAt}
-                    </TableCell>
+                    {/* <TableCell>
+                      {influencer.socialHandles[0].metrics.followers}
+                    </TableCell> */}
+                    {/* <TableCell>
+                      {dob}
+                    </TableCell> */}
                   </TableRow>
                 );
               })}
@@ -135,13 +135,13 @@ export const CustomersTable = (props) => {
         onRowsPerPageChange={onRowsPerPageChange}
         page={page}
         rowsPerPage={rowsPerPage}
-        rowsPerPageOptions={[5, 10, 25]}
+        rowsPerPageOptions={[10, 25, 50]}
       />
     </Card>
   );
 };
 
-CustomersTable.propTypes = {
+InfluencerTable.propTypes = {
   count: PropTypes.number,
   items: PropTypes.array,
   onDeselectAll: PropTypes.func,

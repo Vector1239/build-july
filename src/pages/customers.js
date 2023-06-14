@@ -181,6 +181,10 @@ const Page = () => {
   const customersIds = useCustomerIds(customers);
   const customersSelection = useSelection(customersIds);
 
+  console.log('selection: ', customersSelection);
+  console.log('customers: ', customers);
+  console.log('customer IDs: ', customersIds);
+
   const handlePageChange = useCallback(
     (event, value) => {
       setPage(value);
