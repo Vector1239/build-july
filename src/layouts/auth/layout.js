@@ -98,10 +98,6 @@ export const Layout = (props) => {
             >
              This is a testing environment, only for demo
             </Typography>
-            <Image
-              alt=""
-              src="/assets/auth-illustration.svg"
-            />
           </Box>
         </Grid>
       </Grid>

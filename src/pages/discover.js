@@ -181,51 +181,15 @@ const Page = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(50);
   const [fetchedData, setFetchedData] = useState([]);
+  const [nextPageCursor, setNextPageCursor] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [totalFilteredRows, setTotalFilteredRows] = useState(0);
 
   // write code which fetches data from the API endpoint and stores them into
   // the `data` variable
-  useEffect(() => {
-        console.log('hoping this function does run')
-        const options = {
-        method: 'POST',
-        url: 'https://gateway.goodcreator.co/graphql',
-        headers: {
-            'Accept-Language': 'en-US,en;q=0.9',
-            Authorization: 'Bearer eyJ0eXBlIjoiYXQiLCJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhMzRhYTRhOS0wYTk3LTRlZGUtYTMzYi01NzgyNjE2YzQ4YWEiLCJwYXJ0bmVyUHJvZmlsZUlkIjoxNzIwOCwiaXNzIjoiQnVsYnVsLnR2IiwiaXNBZG1pbiI6ZmFsc2UsImRldmljZUlkIjoibnVsbCIsInNpZCI6IjM0MmRiZDVlLTliMWUtNDRhMi05ZmFmLWZkMjQwM2ZhNWM5MSIsInVpZCI6NDk4NjY1NCwiY2lkeCI6Im53bnZReEZ4OGlLdjVCd3pIVUtzIiwiYXR5cGUiOiJCUkFORCIsInNjb3BlIjoiYXBpIiwidXNlckFjY291bnRJZCI6NDk2Mzk4MiwiYW5vbnltb3VzIjpmYWxzZSwicGFydG5lclByb2ZpbGVXZWJlbmdhZ2VVc2VySWQiOiI0OTYzOTgyIiwicGFydG5lcklkIjoxMTE3MywiZXhwIjoxNjg5MjQ5ODc0LCJpYXQiOjE2ODY2NTc4NzR9.yS6xxpUgxW2OOGTm9hKJdTLoxFoxy7f2Hh_EhzSnvo4',
-            Connection: 'keep-alive',
-            Origin: 'https://campaignmanager.goodcreator.co',
-            Referer: 'https://campaignmanager.goodcreator.co/',
-            'Sec-Fetch-Dest': 'empty',
-            'Sec-Fetch-Mode': 'cors',
-            'Sec-Fetch-Site': 'same-site',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-            accept: 'application/json',
-            'content-type': 'application/json',
-            'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"macOS"',
-            'x-apollo-operation-name': 'searchInfluencers',
-            'x-bb-channelid': 'WEB',
-            'x-bb-clientid': 'nwnvQxFx8iKv5BwzHUKs',
-            'x-bb-clienttype': 'BRAND',
-            'x-bb-deviceid': 'null'
-        },
-        data: {
-            operationName: 'searchInfluencers',
-            variables: {
-            after: null,
-            size: 50,
-            query: {
-                filters: [{field: 'platform', filterType: 'EQ', value: 'INSTAGRAM'}],
-                orderBy: null,
-                orderDirection: null
-            }
-            },
-            query: 'query searchInfluencers($before: String, $after: String, $size: Int, $query: SearchQuery) {\n  searchInfluencers(before: $before, after: $after, size: $size, query: $query) {\n    pageInfo {\n      total\n      totalFiltered\n      hasNextPage\n      __typename\n    }\n    edges {\n      node {\n        id\n        onGcc\n        instaVerified\n        blackListedBy\n        blackListedReason\n        isBlackListed\n        name\n        email\n        socialHandles {\n          id\n          platform\n          handle\n          url\n          metrics {\n            followers\n            following\n            avgEngagement\n            avgLikes\n            avgComments\n            numOfPosts\n            avgVideoViews\n            subscribers\n            totalVideos\n            avgReach\n            totalViews\n            __typename\n          }\n          __typename\n        }\n        gender\n        contentCategories {\n          id\n          name\n          __typename\n        }\n        label\n        languages\n        country\n        state\n        city\n        bio\n        dob\n        age\n        barterAllowed\n        isPlixxoUser\n        profileImage {\n          url\n          __typename\n        }\n        whatsappNumber\n        whatsappOptin\n        creatorPrograms {\n          id\n          tag\n          level\n          __typename\n        }\n        creatorCohorts {\n          id\n          tag\n          level\n          __typename\n        }\n        phone\n        comment\n        commercials {\n          id\n          price\n          format\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}'
-        }
-        };
+  const fetchInfluencers = async () => {
+    console.log('hoping this function does run')
+        
         axios.request(options).then(function (response) {
         //console.log(response.data);
         const result = response.data;
@@ -237,17 +201,23 @@ const Page = () => {
             setIsLoaded(false);
         console.error(error);
         });
-    }, []);
+  }
+
+
+
+  useEffect(() => {
+        fetchInfluencers()
+    }, [nextPageCursor, rowsPerPage]);
 
     const influencers = useFetchedData(page, rowsPerPage, fetchedData);
     const influencersId = useFetchedDataId(influencers);
     const influencersSelection = useSelection(influencersId);
 
 console.log('fetched data: ', fetchedData);
-console.log(fetchedData.length);
-console.log('influencers: ', influencers);
-console.log('influencersId: ', influencersId);
-console.log('total found: ', totalFilteredRows);
+// console.log(fetchedData.length);
+// console.log('influencers: ', influencers);
+// console.log('influencersId: ', influencersId);
+// console.log('total found: ', totalFilteredRows);
   const handlePageChange = useCallback(
     (event, value) => {
       setPage(value);
