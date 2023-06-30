@@ -10,10 +10,229 @@ import { OverviewTasksProgress } from 'src/sections/overview/overview-tasks-prog
 import { OverviewTotalCustomers } from 'src/sections/overview/overview-total-customers';
 import { OverviewTotalProfit } from 'src/sections/overview/overview-total-profit';
 import { OverviewTraffic } from 'src/sections/overview/overview-traffic';
+import React, { useState } from "react";
+import {
+  Typography,
+  TextField,
+  Button,
+  Stepper,
+  Step,
+  StepLabel,
+  Modal,
+  Card,
+  CardContent,
+} from "@mui/material";
+import {
+  useForm,
+  Controller,
+  FormProvider,
+  useFormContext,
+} from "react-hook-form";
+import { useRouter } from 'next/router';
 
 const now = new Date();
 
-const Page = () => (
+function getSteps() {
+  return ["Select Platform", "Select Campaign Type", "Create New Campaign"];
+}
+
+const SelectPlatform = () => {
+  const { control } = useFormContext();
+
+  return (
+    <>
+      <Typography variant="h4" align="center" gutterBottom>
+        Choose the Platform on which you want to run the Campaign
+      </Typography>
+
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <img
+          src="https://img.freepik.com/premium-vector/instagram-icon_488108-3.jpg?w=2000"
+          alt="Image 1"
+          style={{ width: "200px", height: "200px", marginRight: "20px" }}
+        />
+
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/018/910/794/original/youtube-logo-youtube-icon-youtube-symbol-free-free-vector.jpg"
+          alt="Image 2"
+          style={{ width: "200px", height: "200px", marginLeft: "20px", marginBottom: "20px" }}
+        />
+      </div>
+    </>
+  );
+};
+
+const SelectCampaignType = () => {
+  const { control } = useFormContext();
+
+  return (
+    <>
+      <div style={{ display: "flex", justifyContent: "space-evenly", marginBottom: "20px"}}>
+        <Card>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Barter Campaign
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+            Influencers keep the products in-exchange for posting content. Brand can create multiple hampers for influencers to choose. This type is most popular.
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Payout Campaign
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+            Influencers keep the products in-exchange for posting content. Brand can create multiple hampers for influencers to choose. This type is most popular..
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Cashback Campaign
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+            Influencers keep the products in-exchange for posting content. Brand can create multiple hampers for influencers to choose. This type is most popular.
+            </Typography>
+          </CardContent>
+        </Card>
+      </div>
+    </>
+  );
+};
+
+const CreateNewCampaign = () => {
+  const { control } = useFormContext();
+
+  return (
+    <>
+    <Typography variant="h5" align="center" gutterBottom>
+        Enter the highlights of your campaign to get started with the campaign setup.
+      </Typography>
+
+      <Typography align="center" marginBottom="20px" gutterBottom>
+        The information below will be displayed to the influencers on the App.
+      </Typography>
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ width: "48%" }}>
+          <Controller
+            control={control}
+            name="campaignName"
+            render={({ field }) => (
+              <TextField
+                id="campaign-name"
+                label="Campaign Name"
+                variant="outlined"
+                placeholder="Enter Campaign Name"
+                fullWidth
+                margin="normal"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        <div style={{ width: "48%" }}>
+          <Controller
+            control={control}
+            name="brandName"
+            render={({ field }) => (
+              <TextField
+                id="brand-name"
+                label="Brand Name"
+                variant="outlined"
+                placeholder="Enter Brand Name"
+                fullWidth
+                margin="normal"
+                {...field}
+              />
+            )}
+          />
+        </div>
+      </div>
+
+      <Card>
+        <CardContent>
+          <Typography variant="h5" component="div">
+            Upload Image
+          </Typography>
+          <input type="file" accept="image/*" />
+        </CardContent>
+      </Card>
+    </>
+  );
+};
+
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <SelectPlatform />;
+    case 1:
+      return <SelectCampaignType />;
+    case 2:
+      return <CreateNewCampaign />;
+    default:
+      return "Unknown";
+  }
+}
+
+const Page = () => {
+  const methods = useForm({
+    defaultValues: {
+
+    },
+
+  });
+
+  const router = useRouter();
+
+  const [activeStep, setActiveStep] = useState(0);
+  const [skippedSteps, setSkippedSteps] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const steps = getSteps();
+
+  const isStepOptional = (step) => {
+    return step === 1 || step === 2;
+  };
+
+  const isStepSkipped = (step) => {
+    return skippedSteps.includes(step);
+  };
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSkip = () => {
+    if (!isStepSkipped(activeStep)) {
+      setSkippedSteps([...skippedSteps, activeStep]);
+    }
+    setActiveStep(activeStep + 1);
+  };
+
+  const handleComplete = () => {
+    setActiveStep(steps.length);
+    router.push("/createCampaign");
+  };
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
+  return (
   <>
     <Head>
       <title>
@@ -75,6 +294,139 @@ const Page = () => (
               sx={{ height: '100%' }}
               value="$15k"
             />
+          </Grid>
+
+          <Grid
+            xs={12}
+            lg={8}>
+                  <div
+
+                  style={{
+                  backgroundImage:
+                  'url("https://www.dxglobal.com/media/pu3f2ano/dx-general-background-1.jpeg")', // Replace with the URL of your background image
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  borderRadius: "10px",
+                  height: "170px",
+                  position: "relative",
+                  width: "100%"
+                  }}
+                  >
+                    <h2
+          style={{
+            position: "absolute",
+            top: "10px",
+            left: "10px",
+            color: "#000",
+            marginLeft: "22px",
+          }}
+        >
+         Create a Camapaign
+        </h2>
+        <h4
+          style={{
+            position: "absolute",
+            top: "50px",
+            left: "10px",
+            color: "#000",
+            marginLeft: "22px",
+          }}
+        >
+          and help you brand grow
+        </h4>
+              <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleOpenModal}
+                  style={{
+                    position: "absolute",
+                    top: "110px",
+                    left: "10px",
+                    marginLeft: "20px",
+                  }}
+                >
+                  New Campaign
+                </Button>
+
+                <Modal open={openModal} onClose={handleCloseModal}>
+                  <div className="modal-content">
+                    <Stepper alternativeLabel activeStep={activeStep}>
+                      {steps.map((step, index) => (
+                        <Step key={index}>
+                          <StepLabel>{step}</StepLabel>
+                        </Step>
+                      ))}
+                    </Stepper>
+
+                    {
+                    // activeStep === steps.length ? (
+                    //   <Typography variant="h3" align="center">
+                    //     Thank YOu
+                    //     <FiveSteps />
+                    //   </Typography>
+                    // ) : (
+                      <>
+                        <FormProvider {...methods}>
+                          <form className="modal-form">
+                            {getStepContent(activeStep)}
+
+                            <Button
+                              disabled={activeStep === 0}
+                              onClick={handleBack}
+                            >
+                              Back
+                            </Button>
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              onClick={handleNext}
+                            >
+                              Next
+                            </Button>
+                            {activeStep === steps.length - 1 && (
+                              <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={handleComplete}
+                                style = {{marginLeft: '10px'}}
+                              >
+                                Finish
+                              </Button>
+                            )}
+                          </form>
+                        </FormProvider>
+                      </>
+                    // )
+                    }
+                  </div>
+                </Modal>
+                <style>
+                              {`
+                    .modal-content {
+                      background-color: #ffffff;
+                      padding: 20px;
+                      border-radius: 4px;
+                      width: 700px;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    }
+
+                    .modal-form {
+                      background-color: #ffffff;
+                      margin-top: 20px;
+                      padding: 20px;
+                    }
+
+                    .modal-buttons {
+                      display: flex;
+                      justify-content: flex-end;
+                      margin-top: 20px;
+                    }
+                  `}
+                </style>
+                </div>
           </Grid>
           <Grid
             xs={12}
@@ -221,7 +573,7 @@ const Page = () => (
       </Container>
     </Box>
   </>
-);
+)};
 
 Page.getLayout = (page) => (
   <DashboardLayout>

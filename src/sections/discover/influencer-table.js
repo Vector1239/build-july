@@ -64,6 +64,9 @@ export const InfluencerTable = (props) => {
                 <TableCell>
                   Phone
                 </TableCell>
+                <TableCell>
+                  Followers
+                </TableCell>
                 {/* <TableCell>
                   Followers
                 </TableCell> */}
@@ -101,9 +104,9 @@ export const InfluencerTable = (props) => {
                         direction="row"
                         spacing={2}
                       >
-                        {/* <Avatar src={influencer.profileImage.url}>
+                        <Avatar src={influencer.profileImage.url}>
                           {getInitials(influencer.name)}
-                        </Avatar> */}
+                        </Avatar>
                         <Typography variant="subtitle2">
                           {influencer.name}
                         </Typography>
@@ -115,9 +118,9 @@ export const InfluencerTable = (props) => {
                     <TableCell>
                       {influencer.phone}
                     </TableCell>
-                    {/* <TableCell>
+                    <TableCell>
                       {influencer.socialHandles[0].metrics.followers}
-                    </TableCell> */}
+                    </TableCell>
                     {/* <TableCell>
                       {dob}
                     </TableCell> */}
