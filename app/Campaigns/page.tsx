@@ -3,6 +3,7 @@
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Button } from "@mui/material";
 import { useState } from 'react';
+import EnhancedTable from '../CampaignTable';
 
 
 export default function Campaigns() {
@@ -75,7 +76,7 @@ export default function Campaigns() {
             </div>
 
          {/* TABLE  */}
-
+        <EnhancedTable/>
         </>
     )
 }
