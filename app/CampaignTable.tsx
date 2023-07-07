@@ -19,42 +19,43 @@ import { visuallyHidden } from '@mui/utils';
 
 interface Data {
     calories: number;
-    carbs: number;
+    status: string;
     fat: number;
     name: string;
-    protein: number;
+    protein: string;
 }
 
 function createData(
     name: string,
     calories: number,
     fat: number,
-    carbs: number,
-    protein: number,
+    status : string,
+    protein: string,
 ): Data {
     return {
         name,
         calories,
         fat,
-        carbs,
+        status,
         protein,
     };
 }
 
+
 const rows = [
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Donut', 452, 25.0, 51, 4.9),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Honeycomb', 408, 3.2, 87, 6.5),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Jelly Bean', 375, 0.0, 94, 0.0),
-    createData('KitKat', 518, 26.0, 65, 7.0),
-    createData('Lollipop', 392, 0.2, 98, 0.0),
-    createData('Marshmallow', 318, 0, 81, 2.0),
-    createData('Nougat', 360, 19.0, 9, 37.0),
-    createData('Oreo', 437, 18.0, 63, 4.0),
+    createData('Cupcake', 305, 3.7, 'Active', 'are'),
+    createData('Donut', 452, 25.0, 'Active', 'zre'),
+    createData('Eclair', 262, 16.0, 'Active', 'bre'),
+    createData('Frozen yoghurt', 159, 6.0, 'Under Review', 'bre'),
+    createData('Gingerbread', 356, 16.0, 'Under Review', 'bre'),
+    createData('Honeycomb', 408, 3.2, 'Under Review', 'bre'),
+    createData('Ice cream sandwich', 237, 9.0, 'Draft', 'bre'),
+    createData('Jelly Bean', 375, 0.0, 'Draft', 'bre'),
+    createData('KitKat', 518, 26.0, 'Draft', 'bre'),
+    createData('Lollipop', 392, 0.2,'Completed', 'bre'),
+    createData('Marshmallow', 318, 0,'Completed', 'bre'),
+    createData('Nougat', 360, 19.0,'Completed', 'bre'),
+    createData('Oreo', 437, 18.0, 'Completed', 'bre'),
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -124,15 +125,15 @@ const headCells: readonly HeadCell[] = [
         label: 'Platform',
     },
     {
-        id: 'carbs',
-        numeric: true,
-        disablePadding: false,
+        id: 'status',
+        numeric: false,
+        disablePadding: true,
         label: 'Status',
     },
     {
         id: 'protein',
-        numeric: true,
-        disablePadding: false,
+        numeric: false,
+        disablePadding: true,
         label: 'Created On',
     },
 ];
@@ -361,8 +362,8 @@ export default function EnhancedTable() {
                                         </TableCell>
                                         <TableCell align="right">{row.calories}</TableCell>
                                         <TableCell align="right">{row.fat}</TableCell>
-                                        <TableCell align="right">{row.carbs}</TableCell>
-                                        <TableCell align="right">{row.protein}</TableCell>
+                                        <TableCell align="left">{row.status}</TableCell>
+                                        <TableCell align="left">{row.protein}</TableCell>
                                     </TableRow>
                                 );
                             })}

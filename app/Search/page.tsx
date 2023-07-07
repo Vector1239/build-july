@@ -9,7 +9,9 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
-
+import Listlist from '../Listlist';
+import FilterDropdown from '../FilterDropdown';
+import CampaignTable from '../CampaignTable';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -56,72 +58,6 @@ const states = [
 
 export default function InfluencerSearch() {
 
-    const [minFollower, setMinFollower] = useState('');
-    const [maxFollower, setMaxFollower] = useState('');
-
-    const handleMinFollowerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMinFollower(event.target.valueAsNumber.toString());
-    };
-
-    const handleMaxFollowerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMaxFollower(event.target.valueAsNumber.toString());
-    };
-
-    const [minFollowing, setMinFollowing] = useState('');
-    const [maxFollowing, setMaxFollowing] = useState('');
-
-    const handleMinFollowingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMinFollowing(event.target.valueAsNumber.toString());
-    };
-
-    const handleMaxFollowingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMaxFollowing(event.target.valueAsNumber.toString());
-    };
-
-    const [minEGRate, setMinEGRate] = useState('');
-    const [maxEGRate, setMaxEGRate] = useState('');
-
-    const handleMinEGRateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMinEGRate(event.target.valueAsNumber.toString());
-    };
-
-    const handleMaxEGRateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMaxEGRate(event.target.valueAsNumber.toString());
-    };
-
-    const [minVidView, setMinVidView] = useState('');
-    const [maxVidView, setMaxVidView] = useState('');
-
-    const handleMinVidView = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMinVidView(event.target.valueAsNumber.toString());
-    };
-
-    const handleMaxVidView = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMaxVidView(event.target.valueAsNumber.toString());
-    };
-
-    const [minLikes, setMinLikes] = useState('');
-    const [maxLikes, setMaxLikes] = useState('');
-
-    const handleMinLikes = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMinLikes(event.target.valueAsNumber.toString());
-    };
-
-    const handleMaxLikes = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMaxLikes(event.target.valueAsNumber.toString());
-    };
-
-    const [minPosts, setMinPosts] = useState('');
-    const [maxPosts, setMaxPosts] = useState('');
-
-    const handleMinPosts = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMinPosts(event.target.valueAsNumber.toString());
-    };
-
-    const handleMaxPosts = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMaxPosts(event.target.valueAsNumber.toString());
-    };
-
     const [personName, setPersonName] = useState<string[]>([]);
 
     const handleChange = (event: SelectChangeEvent<typeof personName>) => {
@@ -134,25 +70,31 @@ export default function InfluencerSearch() {
         );
     };
 
+    const [gen, setGen] = useState('');
+
+    const handleGenChange = (event: SelectChangeEvent) => {
+        setGen(event.target.value);
+    };
+
     return (
         <>
             {/* Header  */}
-            <div className="bg-gradient-header h-auto p-10">
-                <h1 className="text-5xl font-bold text-white">Discover</h1>
-                <div className='my-5'>
-                    <label className="text-offWhite my-4">Search Influencer</label>
-                    <div className="relative flex items-center w-full h-12 rounded-md focus-within:shadow-lg bg-offWhite overflow-hidden"
+            <div className="bg-gradient-header h-auto p-7">
+                {/* <h1 className="text-5xl font-bold text-white">Discover</h1> */}
+                <div className='my-2 text-xs'>
+                    <label className="text-offWhite my-2 text-xs">Search Influencer</label>
+                    <div className="relative flex items-center w-full h-8 rounded-md focus-within:shadow-lg bg-offWhite overflow-hidden"
                         style={{
                             boxShadow: '0px 0px 0px 0px rgba(76, 61, 255, 0.30), 0px 7px 15px 0px rgba(76, 61, 255, 0.29), 0px 27px 27px 0px rgba(76, 61, 255, 0.26), 0px 61px 37px 0px rgba(76, 61, 255, 0.15), 0px 108px 43px 0px rgba(76, 61, 255, 0.04), 0px 169px 47px 0px rgba(76, 61, 255, 0.01)'
                         }}>
                         <div className="grid place-items-center h-full w-12 text-navyBlue">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
 
                         <input
-                            className="peer h-full w-full outline-none text-sm text-gray-700 bg-offWhite pr-2"
+                            className="peer w-full outline-none  text-gray-700 bg-offWhite pr-1 text-xs"
                             type="text"
                             id="search"
                             placeholder="Enter keywords to capture Bio,Names,Usernames,etc.."
@@ -160,381 +102,11 @@ export default function InfluencerSearch() {
                     </div>
                 </div>
 
-                <div className='flex'>
-                    <div className="mr-16">
-                        <label className="text-offWhite my-4">Followers Count</label>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <TextField
-                                id="min-value-input"
-                                label="Min"
-                                value={minFollower}
-                                onChange={handleMinFollowerChange}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginRight: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                            <Box sx={{ color: 'white' }}>to</Box>
-                            <TextField
-                                id="max-value-input"
-                                label="Max"
-                                value={maxFollower}
-                                onChange={handleMaxFollowerChange}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginLeft: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                        </Box>
-                    </div>
-
-                    <div className="mr-16">
-                        <label className="text-offWhite my-4">Following Count</label>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <TextField
-                                id="min-value-input"
-                                label="Min"
-                                value={minFollowing}
-                                onChange={handleMinFollowingChange}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginRight: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                            <Box sx={{ color: 'white' }}>to</Box>
-                            <TextField
-                                id="max-value-input"
-                                label="Max"
-                                value={maxFollowing}
-                                onChange={handleMaxFollowingChange}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginLeft: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                        </Box>
-                    </div>
-                    <div className="mr-16">
-                        <label className="text-offWhite my-4">Avg. Engagement Rate</label>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <TextField
-                                id="min-value-input"
-                                label="Min"
-                                value={minEGRate}
-                                onChange={handleMinEGRateChange}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginRight: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                            <Box sx={{ color: 'white' }}>to</Box>
-                            <TextField
-                                id="max-value-input"
-                                label="Max"
-                                value={maxEGRate}
-                                onChange={handleMaxEGRateChange}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginLeft: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                        </Box>
-                    </div>
-                </div>
-
-
-                {/* SECOND  */}
-                <div className='flex'>
-                    <div className="mr-16 my-4">
-                        <label className="text-offWhite my-4">Avg. Video Views</label>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <TextField
-                                id="min-value-input"
-                                label="Min"
-                                value={minVidView}
-                                onChange={handleMinVidView}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginRight: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                            <Box sx={{ color: 'white' }}>to</Box>
-                            <TextField
-                                id="max-value-input"
-                                label="Max"
-                                value={maxVidView}
-                                onChange={handleMaxVidView}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginLeft: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                        </Box>
-                    </div>
-
-                    <div className="mr-16 my-4">
-                        <label className="text-offWhite my-4">Avg. Likes</label>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <TextField
-                                id="min-value-input"
-                                label="Min"
-                                value={minLikes}
-                                onChange={handleMinLikes}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginRight: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                            <Box sx={{ color: 'white' }}>to</Box>
-                            <TextField
-                                id="max-value-input"
-                                label="Max"
-                                value={maxLikes}
-                                onChange={handleMaxLikes}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginLeft: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                        </Box>
-                    </div>
-                    <div className="mr- my-4">
-                        <label className="text-offWhite my-4">Number of Posts</label>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <TextField
-                                id="min-value-input"
-                                label="Min"
-                                value={minPosts}
-                                onChange={handleMinPosts}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginRight: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                            <Box sx={{ color: 'white' }}>to</Box>
-                            <TextField
-                                id="max-value-input"
-                                label="Max"
-                                value={maxPosts}
-                                onChange={handleMaxPosts}
-                                variant="filled"
-                                type="number"
-                                sx={{
-                                    width: 130,
-                                    marginLeft: 1,
-                                    '& input': {
-                                        height: 10,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                    '& label': {
-                                        marginTop: -0.5,
-                                        backgroundColor: 'white',
-                                        borderRadius: 1,
-                                        color: '#354682'
-                                    },
-                                }}
-                            />
-                        </Box>
-                    </div>
-
-                </div>
 
                 <div className='flex'>
-                    <div className='my-4 mr-4'>
-                        <label className="text-offWhite my-4">Location</label>
-                        <FormControl sx={{ width: 300, marginTop: 3, marginLeft: -9 }}>
+                    <div className='my-1 mr-4'>
+                        <label className="text-offWhite my-4 text-xs">Location</label>
+                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -7 }}>
                             {/* <InputLabel id="demo-multiple-checkbox-label" className='text-offWhite'>State</InputLabel> */}
                             <Select
                                 id="demo-multiple-checkbox"
@@ -550,16 +122,22 @@ export default function InfluencerSearch() {
                                     return selected.join(', ')
                                 }
                                 }
-                                MenuProps={MenuProps}
+                                MenuProps={{
+                                    sx: {
+                                        width: 200, // Adjust the width as desired
+                                        maxHeight: 200,
+                                        fontSize: '0.75rem',
+                                    },
+                                }}
                                 placeholder="States"
-                                sx={{ backgroundColor: "#e4e9ff", fontFamily: "Montserrat" }}
+                                sx={{ backgroundColor: "#e4e9ff", fontFamily: "Montserrat", fontSize: '0.75rem', height: 40 }}
                             >
                                 <MenuItem disabled value="">
-                                    <em>State</em>
+                                    <h6>State</h6>
                                 </MenuItem>
                                 {states.map((name) => (
-                                    <MenuItem key={name} value={name}>
-                                        <Checkbox checked={personName.indexOf(name) > -1} />
+                                    <MenuItem key={name} value={name} sx={{ fontSize: '0.75rem' }}>
+                                        <Checkbox sx={{ fontSize: '0.75rem' }} checked={personName.indexOf(name) > -1} />
                                         <ListItemText primary={name} />
                                     </MenuItem>
                                 ))}
@@ -567,10 +145,58 @@ export default function InfluencerSearch() {
                         </FormControl>
                     </div>
 
-                    <div className='my-8 p-4'>
-                        <Button style={{ textTransform: 'none', fontFamily: 'Montserrat', borderRadius: 2}}
+                    <div className='my-1 mr-5'>
+                        <label className="text-offWhite my-4 text-xs">Gender</label>
+                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -5 }}>
+                            {/* <InputLabel id="demo-multiple-checkbox-label" className='text-offWhite'>State</InputLabel> */}
+                            <Select
+                                id="demo-multiple-checkbox"
+                                displayEmpty
+                                value={gen}
+                                onChange={handleGenChange}
+                                input={<OutlinedInput />}
+                                renderValue={(selected) => {
+                                    if (selected.length === 0) {
+                                        return <strong>Gender</strong>;
+                                    }
+                                    return selected
+                                }}
+                                MenuProps={{
+                                    sx: {
+                                        width: 180, // Adjust the width as desired
+                                        maxHeight: 200, // Adjust the maximum height as desired
+                                    },
+                                }} placeholder="Gender"
+                                sx={{
+                                    backgroundColor: "#e4e9ff",
+                                    fontFamily: "Montserrat",
+                                    fontSize: '0.75rem',
+                                    height: 40,
+                                    '& .MuiListItem-root': {
+                                        fontSize: '0.75rem',
+                                    },
+                                }}
+                            >
+                                <MenuItem disabled value="">
+                                    <h6>Gender</h6>
+                                </MenuItem>
+                                <MenuItem value={"Male"} sx={{ fontSize: '0.75rem' }}>Male</MenuItem>
+                                <MenuItem value={"Female"} sx={{ fontSize: '0.75rem' }}>Female</MenuItem>
+                            </Select>
+                        </FormControl>
+
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        {/* Other content */}
+                        <FilterDropdown />
+                        {/* Other content */}
+                    </div>
+                    <div className='p-2'>
+                        <Button style={{ textTransform: 'none', fontFamily: 'Montserrat', borderRadius: 2 }}
                             variant='contained'
-                            className="px-6 py-2
+                            className="
                      bg-blurp2 hover:bg-blurp text-white
                      text-16 font-medium leading-normal"
                         >
@@ -578,6 +204,10 @@ export default function InfluencerSearch() {
                         </Button>
                     </div>
                 </div>
+            </div>
+            <div className='flex '>
+                    <CampaignTable />
+                <Listlist />
             </div>
         </>
     )
