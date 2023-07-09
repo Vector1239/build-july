@@ -9,9 +9,12 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
-import Listlist from '../Listlist';
+// import Listlist from '../Listlist';
 import FilterDropdown from '../FilterDropdown';
-import CampaignTable from '../CampaignTable';
+// import CampaignTable from '../CampaignTable';
+import SearchTable from '../SearchTable.js';
+import CreatePlan from '../CreatePlan.js';
+import CreateList from '../CreateList.js';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -23,6 +26,8 @@ const MenuProps = {
         },
     },
 };
+
+const platforms = ['Instagram', 'Twitter'];
 
 const states = [
     'Andhra Pradesh',
@@ -76,6 +81,25 @@ export default function InfluencerSearch() {
         setGen(event.target.value);
     };
 
+
+    const [platform, setPlatform] = useState('');
+
+    const handlePlatformChange = (event: SelectChangeEvent) => {
+        setPlatform(event.target.value);
+    };
+
+    const [showList, setShowList] = useState(false);
+    const [plan, setPlan] = useState('');
+
+    function handleClick(plan:string) {
+        setPlan(plan);
+        setShowList(true);
+    }
+
+    function handleBack() {
+        setShowList(false);
+    }
+
     return (
         <>
             {/* Header  */}
@@ -104,6 +128,46 @@ export default function InfluencerSearch() {
 
 
                 <div className='flex'>
+                    <div className='my-1 mr-4'>
+                        <label className="text-offWhite my-4 text-xs">Platform</label>
+                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -7 }}>
+                            <Select
+                                id="demo-multiple-checkbox"
+                                displayEmpty
+                                value={platform}
+                                onChange={handlePlatformChange}
+                                input={<OutlinedInput />}
+                                renderValue={(selected) => {
+                                    if (selected.length === 0) {
+                                        return <strong>Platform</strong>;
+                                    }
+                                    return selected;
+                                }}
+                                MenuProps={{
+                                    sx: {
+                                        width: 180,
+                                        maxHeight: 200,
+                                    },
+                                }}
+                                placeholder="Platform"
+                                sx={{
+                                    backgroundColor: '#e4e9ff',
+                                    fontFamily: 'Montserrat',
+                                    fontSize: '0.75rem',
+                                    height: 40,
+                                }}
+                            >
+                                <MenuItem disabled value="">
+                                    <h6>Platform</h6>
+                                </MenuItem>
+                                {platforms.map((name) => (
+                                    <MenuItem key={name} value={name} sx={{ fontSize: '0.75rem' }}>
+                                        {name}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </div>
                     <div className='my-1 mr-4'>
                         <label className="text-offWhite my-4 text-xs">Location</label>
                         <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -7 }}>
@@ -147,7 +211,7 @@ export default function InfluencerSearch() {
 
                     <div className='my-1 mr-5'>
                         <label className="text-offWhite my-4 text-xs">Gender</label>
-                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -5 }}>
+                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -6 }}>
                             {/* <InputLabel id="demo-multiple-checkbox-label" className='text-offWhite'>State</InputLabel> */}
                             <Select
                                 id="demo-multiple-checkbox"
@@ -184,30 +248,30 @@ export default function InfluencerSearch() {
                                 <MenuItem value={"Female"} sx={{ fontSize: '0.75rem' }}>Female</MenuItem>
                             </Select>
                         </FormControl>
+                    </div>
 
+                    <div style={{ marginLeft: 'auto' }} className='my-4'>
+                        <FilterDropdown />
                     </div>
                 </div>
                 <div>
-                    <div>
-                        {/* Other content */}
-                        <FilterDropdown />
-                        {/* Other content */}
-                    </div>
-                    <div className='p-2'>
-                        <Button style={{ textTransform: 'none', fontFamily: 'Montserrat', borderRadius: 2 }}
+                    <div className=''>
+                        <Button style={{ textTransform: 'none', fontFamily: 'Montserrat', borderRadius: 4 }}
                             variant='contained'
                             className="
-                     bg-blurp2 hover:bg-blurp text-white
-                     text-16 font-medium leading-normal"
+                     bg-blurp hover:bg-blurp2 text-white
+                     text-16 font-bold leading-normal px-4 my-4"
                         >
                             Submit
                         </Button>
                     </div>
                 </div>
             </div>
+            {/* Header close */}
             <div className='flex '>
-                    <CampaignTable />
-                <Listlist />
+                <SearchTable />
+                {/* <CampaignTable /> */}
+                {showList ? <CreateList onBack={handleBack} plan={JSON.stringify(plan)}/> : <CreatePlan onClick={handleClick} />}
             </div>
         </>
     )

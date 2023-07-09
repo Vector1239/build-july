@@ -25,7 +25,9 @@ module.exports = {
         blurp:'#4C3DFF',
         blurp2:'#2A1FA9',
         offWhite:'#E4E9FF',
-        bluey:'#354682'
+        bluey:'#354682',
+        offWhite2:'#F9FBFF',
+        offPurPur:'#9895d1',
       },
     },
   },

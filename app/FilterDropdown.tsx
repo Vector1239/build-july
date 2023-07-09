@@ -84,12 +84,16 @@ export default function FilterDropdown() {
                 <button
                     type="button"
                     onClick={handleDropdownToggle}
-                    className="text-white"
+                    className={`text-white ${isDropdownOpen ? 'underline' : ''}`}
                 >
                     Advanced Filters
                 </button>
                 {isDropdownOpen && (
-                    <div className="h-auto bg-offWhite shadow p-4">
+                    <div className="h-auto bg-offWhite shadow drop-shadow-lg
+                    p-4 rounded-md my-2" style={{
+                            position: "absolute", top: "100%", right: 0,
+                            zIndex: 10,
+                        }}>
                         {/* Place your filter content here */}
                         <div className="flex">
                             <div className="mr-16">
