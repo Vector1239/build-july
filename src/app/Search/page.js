@@ -14,7 +14,7 @@ import FilterDropdown from '../FilterDropdown';
 // import CampaignTable from '../CampaignTable';
 import CreatePlan from '../CreatePlan.js';
 import CreateList from '../CreateList.js';
-import CheckTable from '../CheckTable.js';
+import SearchTable from '../Tables/SearchTable.js';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -99,6 +99,11 @@ export default function InfluencerSearch() {
     function handleBack() {
         setShowList(false);
     }
+
+
+    const [totalFilteredRows, setTotalFilteredRows] = useState(0);
+    const [fetchedData, setFetchedData] = useState([]);
+
 
     return (
         <>
@@ -269,9 +274,8 @@ export default function InfluencerSearch() {
             </div>
             {/* Header close */}
             <div className='flex '>
-                <CheckTable />
-                {/* <CampaignTable /> */}
-                {showList ? <CreateList onBack={handleBack} plan={JSON.stringify(plan)} /> : <CreatePlan onClick={handleClick} />}
+                <SearchTable filterStatus={'all'} />
+                {/* {showList ? <CreateList onBack={handleBack} plan={JSON.stringify(plan)} /> : <CreatePlan onClick={handleClick} />} */}
             </div>
         </>
     )

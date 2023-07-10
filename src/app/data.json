@@ -1,0 +1,783 @@
+[
+    {
+        "node": {
+            "id": "IG_1550369",
+            "instaVerified": false,
+            "name": "𝑪𝒉𝒂𝒏𝒅𝒓𝒂𝒏𝒌𝒊𝒕𝒂 𝒔𝒊𝒏𝒈𝒉𝒂",
+            "email": "singhachandrankita@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1550369",
+                    "platform": "INSTAGRAM",
+                    "handle": "chandrankita_singha",
+                    "url": "https://www.instagram.com/chandrankita_singha",
+                    "metrics": {
+                        "followers": 1272,
+                        "following": 325,
+                        "avgEngagement": 22.9756,
+                        "avgLikes": 257.25,
+                        "avgComments": 35,
+                        "numOfPosts": 45,
+                        "avgVideoViews": 2398.1927,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 2254.1574,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "FEMALE",
+            "contentCategories": [
+                {
+                    "id": "3",
+                    "name": "Beauty",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "8",
+                    "name": "Make-up",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "13",
+                    "name": "Health",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": "MICRO_INFLUENCER",
+            "languages": [
+                "ENGLISH",
+                "HINDI"
+            ],
+            "country": "India",
+            "state": "Tripura",
+            "city": "Agartala",
+            "bio": "I post about products related to skincare and tools, makeup,healthcare products,dress, hair care, jewellery and accessories.",
+            "dob": "2001-12-20",
+            "age": 21,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/5442347493.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "8118971980",
+            "phone": "8118971980",
+            "comment": "",
+            "commercials": [
+                {
+                    "id": "4",
+                    "price": "0.0",
+                    "format": "Video",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "12",
+                    "price": "500.0",
+                    "format": "Carousel",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "11",
+                    "price": "300.0",
+                    "format": "Reels",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "3",
+                    "price": "200.0",
+                    "format": "Video",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "2",
+                    "price": "50.0",
+                    "format": "Story",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "1",
+                    "price": "100.0",
+                    "format": "Image",
+                    "__typename": "InfluencerCommercial"
+                }
+            ],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_1695001",
+            "instaVerified": false,
+            "name": "Bijayan Tripura",
+            "email": "digitalbakha@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1695001",
+                    "platform": "INSTAGRAM",
+                    "handle": "bijayantripura",
+                    "url": "https://www.instagram.com/bijayantripura",
+                    "metrics": {
+                        "followers": 674,
+                        "following": 500,
+                        "avgEngagement": 3.2826,
+                        "avgLikes": 20.5,
+                        "avgComments": 1.625,
+                        "numOfPosts": 227,
+                        "avgVideoViews": 91.4625,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 105.7711,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "MALE",
+            "contentCategories": [
+                {
+                    "id": "4",
+                    "name": "Lifestyle",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "5",
+                    "name": "Travel",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "14",
+                    "name": "Entertainment",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": null,
+            "languages": [
+                "HINDI",
+                "ENGLISH"
+            ],
+            "country": "India",
+            "state": "Tripura",
+            "city": "Agartala",
+            "bio": "Hey! I'm an Mimicry Artist ",
+            "dob": "2000-01-11",
+            "age": 23,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/6948430513.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "6009213629",
+            "phone": "6009213629",
+            "comment": "",
+            "commercials": [
+                {
+                    "id": "4",
+                    "price": "400.0",
+                    "format": "Video",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "12",
+                    "price": "100.0",
+                    "format": "Carousel",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "11",
+                    "price": "100.0",
+                    "format": "Reels",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "3",
+                    "price": "300.0",
+                    "format": "Video",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "2",
+                    "price": "100.0",
+                    "format": "Story",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "1",
+                    "price": "200.0",
+                    "format": "Image",
+                    "__typename": "InfluencerCommercial"
+                }
+            ],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_1413762",
+            "instaVerified": false,
+            "name": "𝕀𝕤𝕡𝕚𝕥𝕒 𝔻𝕒𝕤",
+            "email": "dr.ispita91@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1413762",
+                    "platform": "INSTAGRAM",
+                    "handle": "ep_leowoman91",
+                    "url": "https://www.instagram.com/ep_leowoman91",
+                    "metrics": {
+                        "followers": 356,
+                        "following": 36,
+                        "avgEngagement": 5.7935,
+                        "avgLikes": 19.625,
+                        "avgComments": 1,
+                        "numOfPosts": 215,
+                        "avgVideoViews": 151.5901,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 143.7059,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "FEMALE",
+            "contentCategories": [
+                {
+                    "id": "4",
+                    "name": "Lifestyle",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "17",
+                    "name": "Luxury",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "27",
+                    "name": "Decor",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": null,
+            "languages": [],
+            "country": "India",
+            "state": "Tripura",
+            "city": "Agartala",
+            "bio": "Hey! I'm on Plixxo! ^_^",
+            "dob": "1991-06-18",
+            "age": 32,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/5928171784.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "8780486081",
+            "phone": "8780486081",
+            "comment": "",
+            "commercials": [],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_53791",
+            "instaVerified": false,
+            "name": "Sid",
+            "email": "subha.xinha.43@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_53791",
+                    "platform": "INSTAGRAM",
+                    "handle": "sidbarmann",
+                    "url": "https://www.instagram.com/sidbarmann",
+                    "metrics": {
+                        "followers": 3633,
+                        "following": 721,
+                        "avgEngagement": 3.8604,
+                        "avgLikes": 136.875,
+                        "avgComments": 3.375,
+                        "numOfPosts": 142,
+                        "avgVideoViews": 1961.453,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 1143.9616,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "MALE",
+            "contentCategories": [
+                {
+                    "id": "4",
+                    "name": "Lifestyle",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "7",
+                    "name": "Art",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "17",
+                    "name": "Luxury",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": "MICRO_INFLUENCER",
+            "languages": [],
+            "country": "India",
+            "state": "Tripura",
+            "city": "Agartala",
+            "bio": "Hey! I'm on Plixxo! ^_^",
+            "dob": "1997-04-08",
+            "age": 26,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/1834545403.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "7085518275",
+            "phone": "7085518275",
+            "comment": "",
+            "commercials": [],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_1476428",
+            "instaVerified": false,
+            "name": "Sweetie Paul",
+            "email": "paulsweety044@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1476428",
+                    "platform": "INSTAGRAM",
+                    "handle": "sweetiepaul",
+                    "url": "https://www.instagram.com/sweetiepaul",
+                    "metrics": {
+                        "followers": 51,
+                        "following": 184,
+                        "avgEngagement": 4.1667,
+                        "avgLikes": 2,
+                        "avgComments": 0.125,
+                        "numOfPosts": 28,
+                        "avgVideoViews": 0,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 13.4539,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "FEMALE",
+            "contentCategories": [
+                {
+                    "id": "2",
+                    "name": "Fashion",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": null,
+            "languages": [],
+            "country": "India",
+            "state": "Nagaland",
+            "city": "Kohima",
+            "bio": "",
+            "dob": "2004-09-15",
+            "age": 18,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/49901016998.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "7005893203",
+            "phone": "7005893203",
+            "comment": "",
+            "commercials": [],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_1436153",
+            "instaVerified": false,
+            "name": "Tuli Saha",
+            "email": "tuli.saha.01214@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1436153",
+                    "platform": "INSTAGRAM",
+                    "handle": "___tulisaha___",
+                    "url": "https://www.instagram.com/___tulisaha___",
+                    "metrics": {
+                        "followers": 1212,
+                        "following": 178,
+                        "avgEngagement": 7.7661,
+                        "avgLikes": 90.625,
+                        "avgComments": 3.5,
+                        "numOfPosts": 128,
+                        "avgVideoViews": 0,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 516.2249,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "FEMALE",
+            "contentCategories": [],
+            "label": "MICRO_INFLUENCER",
+            "languages": [],
+            "country": "India",
+            "state": "Tripura",
+            "city": "Agartala",
+            "bio": "Hey! I'm on Plixxo! ^_^\nHi, \nI am Tuli Saha from Tripura, Agartala.\nI am very excited to see whats gonna come in my path. I love doing makeup and content creation so, here iam with my creativity, hope so you people will like it. \nThank you ❤️",
+            "dob": "2000-07-14",
+            "age": 22,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/9180336294.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "8837040252",
+            "phone": "8837040252",
+            "comment": "",
+            "commercials": [],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_1491862",
+            "instaVerified": false,
+            "name": "Luke Wangsu",
+            "email": "laiwangwangsu@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1491862",
+                    "platform": "INSTAGRAM",
+                    "handle": "lukewangsu",
+                    "url": "https://www.instagram.com/lukewangsu",
+                    "metrics": {
+                        "followers": 709,
+                        "following": 660,
+                        "avgEngagement": 11.213,
+                        "avgLikes": 78.125,
+                        "avgComments": 1.375,
+                        "numOfPosts": 297,
+                        "avgVideoViews": 277.2109,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 431.5646,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "MALE",
+            "contentCategories": [
+                {
+                    "id": "5",
+                    "name": "Travel",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "6",
+                    "name": "Photography",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "22",
+                    "name": "Sports",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": null,
+            "languages": [],
+            "country": "India",
+            "state": "Arunachal Pradesh",
+            "city": "Arunachal",
+            "bio": "Hey! I'm on Plixxo! ^_^",
+            "dob": "1998-07-21",
+            "age": 24,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/4318485228.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "8729804986",
+            "phone": "8729804986",
+            "comment": "",
+            "commercials": [],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_1471097",
+            "instaVerified": false,
+            "name": "无敌西Ashi",
+            "email": "ashi.singh2000@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1471097",
+                    "platform": "INSTAGRAM",
+                    "handle": "ashi_3",
+                    "url": "https://www.instagram.com/ashi_3",
+                    "metrics": {
+                        "followers": 72,
+                        "following": 380,
+                        "avgEngagement": 6.5972,
+                        "avgLikes": 4.5,
+                        "avgComments": 0.25,
+                        "numOfPosts": 261,
+                        "avgVideoViews": 0,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 26.1356,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "FEMALE",
+            "contentCategories": [
+                {
+                    "id": "4",
+                    "name": "Lifestyle",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "6",
+                    "name": "Photography",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "14",
+                    "name": "Entertainment",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": null,
+            "languages": [],
+            "country": "India",
+            "state": "Sikkim",
+            "city": "Gangtok",
+            "bio": "Hey! I'm on Plixxo! ^_^",
+            "dob": "2000-04-12",
+            "age": 23,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/284050626.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "8989954624",
+            "phone": "8989954624",
+            "comment": "",
+            "commercials": [],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_1418720",
+            "instaVerified": false,
+            "name": "@cHoDeNlaa..*tAmUz",
+            "email": "yithochodenbhutia1995@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_1418720",
+                    "platform": "INSTAGRAM",
+                    "handle": "choden96",
+                    "url": "https://www.instagram.com/choden96",
+                    "metrics": {
+                        "followers": 227,
+                        "following": 185,
+                        "avgEngagement": 16.2996,
+                        "avgLikes": 36,
+                        "avgComments": 1,
+                        "numOfPosts": 15,
+                        "avgVideoViews": 0,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 199.224,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "FEMALE",
+            "contentCategories": [
+                {
+                    "id": "3",
+                    "name": "Beauty",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "6",
+                    "name": "Photography",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": null,
+            "languages": [],
+            "country": "India",
+            "state": "Sikkim",
+            "city": "Gangtok",
+            "bio": "Hey! I'm on Plixxo! ^_^",
+            "dob": "1995-12-03",
+            "age": 27,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/32765186719.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "6297464859",
+            "phone": "6297464859",
+            "comment": "",
+            "commercials": [],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    },
+    {
+        "node": {
+            "id": "IG_307099",
+            "instaVerified": false,
+            "name": "SHREYA | MAKEUP ARTIST💄",
+            "email": "disha24n@gmail.com",
+            "socialHandles": [
+                {
+                    "id": "IG_307099",
+                    "platform": "INSTAGRAM",
+                    "handle": "beautybyshreya24n",
+                    "url": "https://www.instagram.com/beautybyshreya24n",
+                    "metrics": {
+                        "followers": 1392,
+                        "following": 682,
+                        "avgEngagement": 2.245,
+                        "avgLikes": 28.625,
+                        "avgComments": 2.625,
+                        "numOfPosts": 723,
+                        "avgVideoViews": 216.5392,
+                        "subscribers": null,
+                        "totalVideos": null,
+                        "avgReach": 195.7771,
+                        "totalViews": null,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                },
+                {
+                    "id": "IG_307099",
+                    "platform": "YOUTUBE",
+                    "handle": "UCiAIXzLmK-4yJXMhKGIMc5g",
+                    "url": "https://www.youtube.com/channel/UCiAIXzLmK-4yJXMhKGIMc5g",
+                    "metrics": {
+                        "followers": null,
+                        "following": null,
+                        "avgEngagement": null,
+                        "avgLikes": null,
+                        "avgComments": null,
+                        "numOfPosts": null,
+                        "avgVideoViews": 251.4444,
+                        "subscribers": 218,
+                        "totalVideos": 63,
+                        "avgReach": null,
+                        "totalViews": 15841,
+                        "__typename": "Metrics"
+                    },
+                    "__typename": "SocialAccount"
+                }
+            ],
+            "gender": "FEMALE",
+            "contentCategories": [
+                {
+                    "id": "2",
+                    "name": "Fashion",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "4",
+                    "name": "Lifestyle",
+                    "__typename": "ContentCategory"
+                },
+                {
+                    "id": "8",
+                    "name": "Make-up",
+                    "__typename": "ContentCategory"
+                }
+            ],
+            "label": "MICRO_INFLUENCER",
+            "languages": [
+                "ENGLISH",
+                "HINDI",
+                "BENGALI"
+            ],
+            "country": "India",
+            "state": "Sikkim",
+            "city": "Assam",
+            "bio": "I make makeup and music videos and sometimes transition videos related to fashion.",
+            "dob": "1997-11-24",
+            "age": 25,
+            "profileImage": {
+                "url": "https://d24w28i6lzk071.cloudfront.net/assets/profiles/instagram/1436993529.jpg",
+                "__typename": "Asset"
+            },
+            "whatsappNumber": "7003781618",
+            "phone": "7003781618",
+            "comment": "",
+            "commercials": [
+                {
+                    "id": "4",
+                    "price": "0.0",
+                    "format": "Video",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "12",
+                    "price": "120.0",
+                    "format": "Carousel",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "11",
+                    "price": "150.0",
+                    "format": "Reels",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "3",
+                    "price": "150.0",
+                    "format": "Video",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "2",
+                    "price": "100.0",
+                    "format": "Story",
+                    "__typename": "InfluencerCommercial"
+                },
+                {
+                    "id": "1",
+                    "price": "100.0",
+                    "format": "Image",
+                    "__typename": "InfluencerCommercial"
+                }
+            ],
+            "__typename": "Influencer"
+        },
+        "__typename": "InfluencerEdge"
+    }
+]

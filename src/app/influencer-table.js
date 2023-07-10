@@ -14,9 +14,10 @@ import {
   TableRow,
   Typography
 } from '@mui/material';
-import { Scrollbar } from './scrollbar';
+import { Scrollbar } from 'src/components/scrollbar';
+import { getInitials } from 'src/utils/get-initials';
 
-export const CheckTable = (props) => {
+export const InfluencerTable = (props) => {
   const {
     count = 0,
     items = [],
@@ -104,7 +105,7 @@ export const CheckTable = (props) => {
                         spacing={2}
                       >
                         <Avatar src={influencer.profileImage.url}>
-                          {(influencer.name)}
+                          {getInitials(influencer.name)}
                         </Avatar>
                         <Typography variant="subtitle2">
                           {influencer.name}
@@ -143,7 +144,7 @@ export const CheckTable = (props) => {
   );
 };
 
-CheckTable.propTypes = {
+InfluencerTable.propTypes = {
   count: PropTypes.number,
   items: PropTypes.array,
   onDeselectAll: PropTypes.func,

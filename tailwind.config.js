@@ -24,6 +24,7 @@ module.exports = {
         bluey: '#354682',
         offWhite2: '#F9FBFF',
         offPurPur: '#9895d1',
+        offBlue:'#e7e3ff',
       },
     },
   },
