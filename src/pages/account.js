@@ -5,7 +5,7 @@ import { AccountProfile } from 'src/sections/account/account-profile';
 import { AccountProfileDetails } from 'src/sections/account/account-profile-details';
 
 const Page = () => (
-  <>
+  <div>
     <Head>
       <title>
         Account | Admyre Demo
@@ -49,7 +49,7 @@ const Page = () => (
         </Stack>
       </Container>
     </Box>
-  </>
+  </div>
 );
 
 Page.getLayout = (page) => (
