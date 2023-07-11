@@ -3,6 +3,8 @@
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Button } from "@mui/material";
 import { useState } from 'react';
+import 'tailwindcss/tailwind.css'
+import AllCampaignTable from '../Tables/AllCampaignTable.js'
 // import AllCampaignTable from '../Tables/AllCampaignTable.js'
 
 export default function Campaigns() {
@@ -75,7 +77,7 @@ export default function Campaigns() {
             </div>
 
             {/* TABLE  */}
-            {/* <AllCampaignTable filterStatus={selectedTab === 'all' ? 'all' : selectedTab} /> */}
+            <AllCampaignTable filterStatus={selectedTab === 'all' ? 'all' : selectedTab} />
         </>
     )
 }

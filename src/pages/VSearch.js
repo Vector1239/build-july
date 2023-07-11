@@ -1,6 +1,6 @@
+"use client"
 
-
-import { Box, TextField, Button } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 import { useState } from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,12 +9,13 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
-// import Listlist from '../Listlist';
-import FilterDropdown from './FilterDropdown';
-// import CampaignTable from '../CampaignTable';
-import CreatePlan from './CreatePlan.js';
-import CreateList from './CreateList.js';
-import SearchTable from './SearchTable.js';
+import FilterDropdown from '../components/FilterDropdown';
+import { Button } from "@mui/material";
+import CreatePlan from '../components/CreatePlan';
+import CreateList from '../components/CreateList';
+import SearchTable from '../Tables/SearchTable.js';
+import 'tailwindcss/tailwind.css'
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -61,7 +62,7 @@ const states = [
 ];
 
 
-export default function Search() {
+export default function InfluencerSearch() {
 
     const [personName, setPersonName] = useState([]);
 
@@ -100,70 +101,39 @@ export default function Search() {
         setShowList(false);
     }
 
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for sidebar visibility
 
-    const [totalFilteredRows, setTotalFilteredRows] = useState(0);
-    const [fetchedData, setFetchedData] = useState([]);
-
-    const HeaderStyle = {
-        background: 'linear-gradient(78.25deg, rgb(17, 33, 72) 44.2%, rgb(9, 18, 39) 72.98%)',
-        height: 'max-content',
-        padding: '1.75rem',
+    const handleDropdownToggle = () => {
+        setIsSidebarOpen(!isSidebarOpen); // Toggle the state when the button is clicked
     };
 
-    const labelStyle = {
-        color: '#E4E9FF',
-        marginTop: '0.5rem',
-        marginBottom: '0.5rem',
-        fontSize: '0.75rem',
-        lineHeight: '1rem'
-    };
+    const [selectedRowIds, setSelectedRowIds] = useState([]);
 
-    const SearchContaienrStyle = {
-        marginTop: '2px',
-        marginBottom: '2px',
-        fontSize: '0.75rem',
-        lineHeight: '1rem'
-    }
-
-    const SearchBarStyle = {
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'center',
-        width: '100%',
-        height: '2rem',
-        borderRadius: '0.375rem',
-        boxShadow:
-            '0px 0px 0px 0px rgba(76, 61, 255, 0.30), 0px 7px 15px 0px rgba(76, 61, 255, 0.29), 0px 27px 27px 0px rgba(76, 61, 255, 0.26), 0px 61px 37px 0px rgba(76, 61, 255, 0.15), 0px 108px 43px 0px rgba(76, 61, 255, 0.04), 0px 169px 47px 0px rgba(76, 61, 255, 0.01)',
-        backgroundColor: '#E4E9FF',
-        overflow: 'hidden',
-    };
-
-    const iconStyle = {
-        display: 'grid',
-        placeItems: 'center',
-        height: '100%',
-        width: '1rem',
-        color: '#112148',
+    // Callback function to handle the selected row IDs
+    const handleSelectedRowsChange = (rowIds) => {
+        setSelectedRowIds(rowIds);
+        console.log(selectedRowIds);
     };
 
     return (
-        <div>
-
+        <>
             {/* Header  */}
-            <div style={HeaderStyle}>
-
+            <div className="bg-gradient-header h-auto p-7">
                 {/* <h1 className="text-5xl font-bold text-white">Discover</h1> */}
-                <div style={SearchContaienrStyle}>
-                    <label style={labelStyle}>Search Influencer</label>
-                    <div style={SearchBarStyle}>
-                        <div style={iconStyle}>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ height: '20px', width: '20px', marginLeft: '4px' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <div className='my-2 text-xs'>
+                    <label className="text-offWhite my-2 text-xs">Search Influencer</label>
+                    <div className="relative flex items-center w-full h-8 rounded-md focus-within:shadow-lg bg-offWhite overflow-hidden"
+                        style={{
+                            boxShadow: '0px 0px 0px 0px rgba(76, 61, 255, 0.30), 0px 7px 15px 0px rgba(76, 61, 255, 0.29), 0px 27px 27px 0px rgba(76, 61, 255, 0.26), 0px 61px 37px 0px rgba(76, 61, 255, 0.15), 0px 108px 43px 0px rgba(76, 61, 255, 0.04), 0px 169px 47px 0px rgba(76, 61, 255, 0.01)'
+                        }}>
+                        <div className="grid place-items-center h-full w-12 text-navyBlue">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
 
                         <input
-                            style={{ display: 'flex', marginLeft: '6px', border: 'none', alignItems: 'center', width: '100%', outline: 'none', color: '#374151', backgroundColor: '#E4E9FF', paddingRight: '4px', fontSize: '12px' }}
+                            className="peer w-full outline-none  text-gray-700 bg-offWhite pr-1 text-xs"
                             type="text"
                             id="search"
                             placeholder="Enter keywords to capture Bio,Names,Usernames,etc.."
@@ -172,11 +142,10 @@ export default function Search() {
                 </div>
 
 
-                <div style={{ display: 'flex' }}>
-                    <div style={{ marginTop: '4px', marginBottom: '4px', marginRight: '16px' }}>
-                        <label style={{ color: '#E4E9FF', marginTop: '16px', marginBottom: '16px', fontSize: '12px' }}>Platform</label>
-                        <br></br>
-                        <FormControl style={{ width: 200, marginTop: 3, marginLeft: -7 }}>
+                <div className='flex'>
+                    <div className='my-1 mr-4'>
+                        <label className="text-offWhite my-4 text-xs">Platform</label>
+                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -7 }}>
                             <Select
                                 id="demo-multiple-checkbox"
                                 displayEmpty
@@ -214,10 +183,10 @@ export default function Search() {
                             </Select>
                         </FormControl>
                     </div>
-                    <div style={{ marginTop: '4px', marginBottom: '4px', marginRight: '16px' }}>
-                        <label style={{ color: '#E4E9FF', marginTop: '16px', marginBottom: '16px', fontSize: '12px' }}>Location</label>
-                        <br></br>
-                        <FormControl style={{ width: 200, marginTop: 3, marginLeft: -7 }}>
+                    <div className='my-1 mr-4'>
+                        <label className="text-offWhite my-4 text-xs">Location</label>
+                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -7 }}>
+                            {/* <InputLabel id="demo-multiple-checkbox-label" className='text-offWhite'>State</InputLabel> */}
                             <Select
                                 id="demo-multiple-checkbox"
                                 multiple
@@ -255,12 +224,10 @@ export default function Search() {
                         </FormControl>
                     </div>
 
-
-                    <div style={{ marginTop: '4px', marginBottom: '4px', marginRight: '20px' }}>
-                        <label style={{ color: '#E4E9FF', marginTop: '16px', marginBottom: '16px', fontSize: '12px' }}>Gender</label>
-                        <br></br>
-                        <FormControl style={{ width: '200px', marginTop: '3px', marginLeft: '-6px' }}>
-                            {/* <InputLabel id="demo-multiple-checkbox-label" className='text-#E4E9FF'>State</InputLabel> */}
+                    <div className='my-1 mr-5'>
+                        <label className="text-offWhite my-4 text-xs">Gender</label>
+                        <FormControl sx={{ width: 200, marginTop: 3, marginLeft: -6 }}>
+                            {/* <InputLabel id="demo-multiple-checkbox-label" className='text-offWhite'>State</InputLabel> */}
                             <Select
                                 id="demo-multiple-checkbox"
                                 displayEmpty
@@ -298,37 +265,45 @@ export default function Search() {
                         </FormControl>
                     </div>
 
-                    <div style={{ marginLeft: 'auto', marginTop: '4px' }}>
+                    <div style={{ marginLeft: 'auto' }} className='my-4'>
                         <FilterDropdown />
                     </div>
                 </div>
                 <div>
                     <div>
-                        <Button style={{
-                            textTransform: 'none',
-                            fontFamily: 'Montserrat',
-                            borderRadius: 4,
-                            backgroundColor: '#4C3DFF',
-                            color: 'white',
-                            fontSize: 16,
-                            fontWeight: 'bold',
-                            lineHeight: 'normal',
-                            padding: '12px 24px',
-                            marginTop: '16px',
-                            '&:hover': {
-                                backgroundColor: '#2A1FA9',
-                            },
-                        }}
-                            variant='contained' >
+                        <Button style={{ textTransform: 'none', fontFamily: 'Montserrat', borderRadius: 4 }}
+                            variant='contained'
+                            className="
+                     bg-blurp hover:bg-blurp2 text-white
+                     text-16 font-bold leading-normal px-4 my-4"
+                        >
                             Submit
                         </Button>
                     </div>
                 </div>
-            </div >
-            <div style={{ display: 'flex' }}>
-                <SearchTable filterStatus={'all'} />
-                {/* {showList ? <CreateList onBack={handleBack} plan={JSON.stringify(plan)} /> : <CreatePlan onClick={handleClick} />} */}
             </div>
-        </div>
+            {/* Header close */}
+
+            <div className="flex flex-col">
+                <Button
+                    style={{ textTransform: 'none', fontFamily: 'Montserrat', borderRadius: 4,marginTop:'16px',marginLeft:'16px' }}
+                    variant="contained"
+                    className="bg-blurp hover:bg-blurp2 text-white text-16 font-bold leading-normal px-4 mt-8 mx-4 w-1/6"
+                    onClick={handleDropdownToggle}
+                >
+                    Add to Collection
+                </Button>
+                <div className="flex">
+                    <SearchTable filterStatus="all" onSelectedRowsChange={handleSelectedRowsChange} />
+                    {isSidebarOpen && (showList ? (
+                        <CreateList onBack={handleBack} plan={JSON.stringify(plan)} selectedRowId={selectedRowIds}/>
+                    ) : (
+                        <CreatePlan onClick={handleClick} />
+                    ))}
+                </div>
+            </div>
+
+            {/* {showList ? <CreateList onBack={handleBack} plan={JSON.stringify(plan)} /> : <CreatePlan onClick={handleClick} />} */}
+        </>
     )
 }
